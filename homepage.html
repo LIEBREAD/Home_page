@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+    <link href='test1.css' rel='stylesheet' type='text/css'>
+    <!-- フォント -->
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/408cfc4d5d.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="test1.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>   
+    <header class="main_h">
+
+        <div class="row">
+            <a class="logo" href="#">Takasu Company</a>
+
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href=".sec01">Section 01</a></li>
+                    <li><a href=".sec02">Section 02</a></li>
+                    <li><a href=".sec03">Section 03</a></li>
+                    <li><a href=".sec04">Section 04</a></li>
+                </ul>
+            </nav>
+
+        </div> <!-- / row -->
+
+    </header>
+
+
+
+    <div class="row content">
+        <section class="wrapper">
+            <div class="container">
+                <div class="content">
+                    <div class="content-item">
+                        <img src="./static/images/hana.jpg" class="image">
+                    </div>    
+                    <div class="content-item">
+                        <div class="text">
+                            <i class="fa fa-cog fa-spin"></i>
+                            <h2 class="heading">Arithmetic word</h2>
+                            <p>Word2Vec//単語の意味や文法を捉えるために単語をベクトル表現化して次元を圧縮</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="sec">
+            <ul>
+
+              <li>
+                <span class="fa fa-down-left-and-up-right-to-center"></span>
+          
+                <a class="title01" href="/similar">類義語生成　</a>
+                <p>類義語を生成します<br> 
+                    入力された単語ベクトルと最も数値の近い単語を生成します。<br>
+                    (例)<br>
+                    入力↓<br>
+                    渋谷 0.895398729873844<br>
+                    出力↓<br>
+                    1.  渋谷	0.8966183662414551<br>
+                    2.	池袋	0.8874653577804565<br>
+                    3.	六本木	0.8376412391662598<br>
+                    4.	吉祥寺	0.8290987610816956<br>
+                    5.	代官山	0.8229836821556091<br>
+                
+                </p>
+              </li>
+            
+              <li>
+                <span class="fa fa-up-right-and-down-left-from-center"></span>
+          
+                <a class="title01"href="/opose">対義語生成　</a>
+                <p>対義語を生成します。<br>
+                    入力された単語ベクトルと最も数値の遠い単語を生成します。<br>
+                    (例)<br>
+                    入力↓<br>
+                    母 	0.5159462094306946<br>
+                    出力↓<br>
+                    1.	父	0.532108724117279 <br>
+                    2.	妻	0.5215293169021606 <br>
+                    3.	夫	0.5108489394187927<br>
+                    4.	夫人	0.48843416571617126<br>
+                    5.	姉	0.47216981649398804<br>
+                </p>
+              </li>
+              <li>
+                <span class="fa fa-plus"></span>
+          
+                <a class="title01" href="/add" >加算　</a>
+                <p>言葉の足し算をします<br>
+                </p>
+              </li>
+              <li>
+                <span class="fa fa-minus"></span>
+          
+                <a class="title01" href="/minus" >減算　</a>
+                <p>言葉の引き算をします</p>
+              </li>
+
+              <li>
+                <span class="fa fa-plus-minus"></span>          
+                <a class="title01" href="/add-minus">加減算　</a>
+                <p>言葉を足して引きます。</p>
+              </li>
+            </ul>
+        </div>
+
+        <h1 class="sec01">Section 01　Intro</h1>
+        <p>
+            Word2Vecという機械学習モデルを聞いたことはありますか？？<br> 
+            Word2Vecは単語の意味や文法を捉えるために単語をベクトル表現化して次元を圧縮できるものです。<br> そのため、言葉の足し算引き算が可能です。<br> 
+            例えば、<br> 
+            「王様」- 「男」+ 「女」= 「女王」<br> 
+            「パリ」- 「フランス」+ 「日本」= 「東京」<br> 
+            のような演算をすることが出来るようになり、単語間の意味に基いて関係性を理解することができるようになります。<br> 
+
+            概念的なものの足し算引き算ができるということで、いじってみたところ、<br> 
+            「ムササビ」－「弱」＋「強」、でゴリラとかにならないか？<br> 
+            「コアラのマーチ」 の対義語を生成したら「ゴリラのレクイエム」にならないか？<br> 
+            「生理的に無理」 の対義語を生成したら「理論上は可能」にならないか？など理論を無視した対義語の生成をしてみたいと思った。<br> ので、作ってみました。
+
+            </p>
+        <h1 class="sec02">Section 02 Kodawari</h1>
+        <p>ただ開発者本人も「もし対義語が重要な意味をもつ機能をWord2Vecで開発しようと思うのであれば少し検討し直したほうが良いだろう。」<br> と公言している通りにWord2Vecは対義語に弱いんです。
+            理由は簡単で、「私はあなたのことが好きです」と「私はあなたのことが嫌いです」のようにが対義語は同じ文脈で登場するからです。<br> 
+            そのため、「王様」 ー 「女」 ＋ 「男」 = 「？？」<br> といったように、対義語のペア（BA）を引いて足す（「与えられた単語」ー「B」＋「A」）ことでことで、対義語を生成するという手法を用いた。
+            </p>
+        <h1 class="sec03">Section 03　Reference</h1>
+        <p>[1] Masatoshi Suzuki, Koji Matsuda, Satoshi Sekine, Naoaki Okazaki and Kentaro Inui. A Joint Neural Model for Fine-Grained Named Entity Classification of Wikipedia Articles. IEICE Transactions on Information and Systems, Special Section on Semantic Web and Linked Data, Vol. E101-D, No.1, pp.73-81, 2018.<br> 
+            [2] Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. ICLR, 2013.<br> 
+            [3] Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, Jeff Dean. Distributed Representations of Words and Phrases and their Compositionality. NIPS, 2013.<br> 
+            </p>
+        <h1 class="sec04">Section 04 Info</h1>
+        <p>主<br> 
+            大学3年　たかぱん<br> 
+            やりたいこと<br> 
+            →いろんなモデルと使ってみたい、APIを有効に使ってみたい<br> 
+            趣味<br> 
+            →家電分解　第五人格　計画をたてること<br> 
+            </p>
+    </div>
+
+    
+
+   
+</body>
